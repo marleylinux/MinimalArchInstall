@@ -88,6 +88,7 @@ if (next("Do you want to install \033[36mLinux\033[0m headers? (y/n): ") == 'y')
 }
 
 
+
 // Linux/app packages
 if (next("\033[0mDo you want to install \033[36mlinux/app\033[0m packages? (y/n): ") == 'y') {
     printf("Installing \033[36mlinux/app\033[0m packages\n");
@@ -107,6 +108,16 @@ if (next("Do you want to install \033[33mmultilib\033[0m \033[36mlinux/app\033[0
     forward();
 } else {
     printf("Skipping \033[33mmultilib\033[0m packages.\n");
+}
+
+// Proton packages
+if (next("Do you want to install \033[35mProtonvpn\033[0m packages? (y/n): ") == 'y') {
+    printf("Installing \033[35mProton\033[0m packages\n");
+    forward();
+    system("sudo pacman -S --needed --noconfirm proton-vpn-gtk-app python-proton-core python-proton-keyring-linux python-proton-vpn-api-core python-proton-vpn-local-agent python-proton-vpn-network-managerg");
+    forward();
+} else {
+    printf("Skipping \033[35mProtonvpn\033[0m packages.\n");
 }
 
 
@@ -133,24 +144,24 @@ if (next("Do you want to install \033[33mmultilib\033[0m \033[31mAMD\033[0m pack
 
 
 // Vulkan packages
-if (next("Do you want to install \033[35mVulkan\033[0m packages? (y/n): ") == 'y') {
-    printf("Installing \033[35mVulkan\033[0m packages\n");
+if (next("Do you want to install \033[34mVulkan\033[0m packages? (y/n): ") == 'y') {
+    printf("Installing \033[34mVulkan\033[0m packages\n");
     forward();
     system("sudo pacman -S --needed --noconfirm vulkan-radeon vulkan-validation-layers vulkan-headers vulkan-extra-layers vkd3d");
     forward();
 } else {
-    printf("Skipping \033[35mVulkan\033[0m packages.\n");
+    printf("Skipping \033[34mVulkan\033[0m packages.\n");
 }
 
 
 // Multilib Vulkan packages
-if (next("Do you want to install \033[33mmultilib\033[0m \033[35mVulkan\033[0m packages? (y/n): ") == 'y') {
-    printf("Installing \033[33mmultilib\033[0m \033[35mVulkan\033[0m packages\n");
+if (next("Do you want to install \033[33mmultilib\033[0m \033[34mVulkan\033[0m packages? (y/n): ") == 'y') {
+    printf("Installing \033[33mmultilib\033[0m \033[34mVulkan\033[0m packages\n");
     forward();
     system("sudo pacman -S --needed --noconfirm lib32-vulkan-validation-layers lib32-vkd3d");
     forward();
 } else {
-    printf("Skipping \033[33mmultilib\033[0m \033[35mVulkan\033[0m packages.\n");
+    printf("Skipping \033[33mmultilib\033[0m \033[34mVulkan\033[0m packages.\n");
 }
 
 
