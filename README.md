@@ -23,5 +23,10 @@ Desktop enviroment setup
 
 I'm just pratcing C as much as possible. It was fun! 
 
+## Instructions ##
+git clone https://github.com/marleylinux/MinimalArchInstall
+cd MinimalArchInstall
+./MinimalArchInstall
+
 
 ## I want to add using a greeter properly but I'd want to set it up so gnome would be awkward. i guess if gnome don't give a choice but thats a tomorrow job
