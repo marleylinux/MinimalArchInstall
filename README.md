@@ -25,7 +25,9 @@ I'm just pratcing C as much as possible. It was fun!
 
 ## Instructions ##
 git clone https://github.com/marleylinux/MinimalArchInstall
+
 cd MinimalArchInstall
+
 ./MinimalArchInstall
 
 
