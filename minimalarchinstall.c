@@ -316,7 +316,7 @@ if (animegirlland) {
     if (next("Do you want to install \033[36mHyprland\033[0m extra packages? (y/n): ") == 'y') {
         printf("Installing \033[36mHyprland\033[0m extra packages\n");
         forward();
-        system("sudo pacman -S --needed --noconfirm nwg-panel nwg-bar nwg-drawer hyprpaper hyprlock nwg-hello obs-studio code");
+        system("sudo pacman -S --needed --noconfirm nwg-panel nwg-look nwg-bar nwg-drawer hyprpaper hyprlock nwg-hello obs-studio code pavucontrol resources");
         forward();
     } else {
         printf("Skipping \033[36mHyprland\033[0m extra packages\n");
