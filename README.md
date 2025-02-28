@@ -5,11 +5,17 @@ Allows for installing:
 
 Headers
 Some mostly needed apps (lact cpupower steam are not exactly needed but it was made for me)
+
 AMD/MESA drivers
+
 NVIDIA drivers
+
 Manual aur setup
+
 preinstalling 'needed' apps (again needed for me like xone and xpadneo)
+
 GTK & QT install
+
 Desktop enviroment setup
 
 I'm just pratcing C as much as possible. It was fun! 
