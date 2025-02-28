@@ -5,6 +5,8 @@ Allows for installing:
 
 Headers
 
+Proton (like mail and vpn not the valve proton)
+
 Some mostly needed apps (lact cpupower steam are not exactly needed but it was made for me)
 
 AMD/MESA drivers
