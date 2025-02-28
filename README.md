@@ -4,6 +4,7 @@ For use after using the archinstall script and selecting minimal.(although it WI
 Allows for installing:
 
 Headers
+
 Some mostly needed apps (lact cpupower steam are not exactly needed but it was made for me)
 
 AMD/MESA drivers
