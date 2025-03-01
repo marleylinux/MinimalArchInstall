@@ -297,7 +297,7 @@ if (choice == '1') {
 } else if (choice == '3') {
     printf("Installing \033[90mGTK\033[0m and \033[34mQt\033[0m libraries...\n");
     forward();
-    system("sudo pacman -S --needed --noconfirm gtk3 gtk4 adwaita-icon-theme gtk-layer-shell gtk4-layer-shell qt5-wayland qt-6 wayland libappindicator-gtk3 libdbusmenu-gtk3 xdg-desktop-portal-gtk qt5-base qt6-base breeze-icons");
+    system("sudo pacman -S --needed --noconfirm gtk3 gtk4 adwaita-icon-theme gtk-layer-shell gtk4-layer-shell qt5-wayland qt6-wayland libappindicator-gtk3 libdbusmenu-gtk3 xdg-desktop-portal-gtk qt5-base qt6-base breeze-icons");
     forward();
 
     if (next("Do you want to install \033[33mmultilib\033[0m \033[90mGTK\033[0m packages? (y/n): ") == 'y') {
