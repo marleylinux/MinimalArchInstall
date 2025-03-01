@@ -253,7 +253,15 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
 
     // Build and install packages
     printf("Building and installing \033[36mAUR\033[0m packages...\n");
-    system("cd ~/aur && for dir in */; do cd \"$dir\" && makepkg -si --noconfirm && cd ..; done");
+    system("cd ~/aur && makepkg -si https://aur.archlinux.org/xone-dongle-firmware.git && "
+               "makepkg -si https://aur.archlinux.org/papirus-folders.git && "
+               "makepkg -si https://aur.archlinux.org/librewolf-bin.git && "
+               "makepkg -si https://aur.archlinux.org/libuvc.git && "
+               "makepkg -si https://aur.archlinux.org/xpadneo-dkms.git && "
+               "makepkg -si https://aur.archlinux.org/ttf-ms-fonts.git && "
+               "makepkg -si https://aur.archlinux.org/proton-pass-bin.git && "
+               "makepkg -si https://aur.archlinux.org/proton-mail-bin.git && "
+               "makepkg -si https://aur.archlinux.org/xone-dkms.git");
 
     forward();
 } else {
