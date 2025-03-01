@@ -188,11 +188,6 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
     system("mkdir -p ~/aur");
     forward();
     
-  if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y') {
-    printf("Creating \033[36m~/aur\033[0m directory...\n");
-    system("mkdir -p ~/aur");
-    forward();
-    
     // Ask what to install
     printf("What \033[36mAUR\033[0m packages do you want to install?\n");
     printf("\033[90m1) Everything\033[0m (All my chosen \033[36mAUR\033[0m packages)\n");
