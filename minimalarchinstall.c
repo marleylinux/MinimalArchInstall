@@ -188,7 +188,8 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
     system("mkdir -p ~/aur");
     forward();
     
-    // Ask what to install
+    
+// Ask what to install
     printf("What \033[36mAUR\033[0m packages do you want to install?\n");
     printf("\033[90m1) Everything\033[0m (All my chosen \033[36mAUR\033[0m packages)\n");
     printf("\033[33m2) Important stuff\033[0m (libuvc, xpadneo-dkms, xone-dongle-firmware, xone-dkms)\n");
@@ -196,9 +197,11 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
     printf("\033[31m4) Nothing\033[0m (Skip)\n");
     printf("Enter your choice (1-4): ");
 
+    
     scanf(" %c", &choice);
     while (getchar() != '\n');
 
+    
     if (choice == '1') {
         printf("Cloning and installing all my chosen \033[36mAUR\033[0m packages...\n");
         system("cd ~/aur && git clone https://aur.archlinux.org/xone-dongle-firmware.git && "
@@ -248,7 +251,6 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
 }
 
 
-
 // GTK and Qt Installation
 printf("Do you want to install \033[90mGTK\033[0m, \033[34mQt\033[0m, or \033[32mboth\033[0m?\n");
 printf("1) \033[90mGTK\033[0m\n2) \033[34mQt\033[0m\n3) \033[32mBoth\033[0m\n4) \033[31mSkip\033[0m\n");
@@ -256,6 +258,7 @@ printf("Enter your choice (1-4): ");
 scanf(" %c", &choice);
 while (getchar() != '\n');
 
+    
 if (choice == '1') {
     printf("Installing \033[90mGTK\033[0m libraries...\n");
     forward();
@@ -289,15 +292,18 @@ if (choice == '1') {
     printf("Skipping \033[90mGTK\033[0m and \033[34mQt\033[0m installation.\n");
 }
 
+    
 // Desktop Environment Setup
 int animegirlland = 0; // Track if Hyprland was chosen
 
+    
 printf("Setup a \033[34mdesktop environment\033[0m\n");
 printf("\033[90m1) GNOME\033[0m\n\033[34m2) KDE Plasma\033[0m\n\033[36m3) Hyprland\033[0m\n\033[33m4) Sway\033[0m\n");
 printf("Enter the number of your choice (1-4) or 0 to skip: ");
 scanf(" %c", &choice);
 while (getchar() != '\n');
 
+    
 if (choice == '1' && next("Are you sure you want to install \033[90mGNOME\033[0m? (y/n): ") == 'y') {
     printf("Installing \033[90mGNOME\033[0m\n");
     forward();
@@ -323,8 +329,10 @@ if (choice == '1' && next("Are you sure you want to install \033[90mGNOME\033[0m
     printf("Skipping \033[34mdesktop environment\033[0m installation.\n");
 }
 
+
 // Message indicating skipping installation
 printf("Skipping installation.\n");
+
 
 // If Hyprland was selected, ask about installing extra packages
 if (animegirlland) {
@@ -338,9 +346,8 @@ if (animegirlland) {
     }
 }
 
-printf("\033[31mT\033[33mh\033[32me \033[36mi\033[34mn\033[35ms\033[31mt\033[33ma\033[32ml\033[36ml\033[34ma \033[35mh\033[31ma\033[33ms \033[32mf\033[36mi\033[34mn\033[35mi\033[31ms\033[33mh\033[32me \033[36m!\033[0m\n");
-return 0;
 
+printf("\033[31mT\033[33mh\033[32me \033[36mi\033[34mn\033[35ms\033[31mt\033[33ma\033[32ml\033[36ml\033[34ma \033[35mh\033[31ma\033[33ms \033[32mf\033[36mi\033[34mn\033[35mi\033[31ms\033[33mh\033[32me \033[36m!\033[0m\n");
 return 0;
 
 
