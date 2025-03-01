@@ -93,7 +93,7 @@ if (next("Do you want to install \033[36mLinux\033[0m headers? (y/n): ") == 'y')
 if (next("\033[0mDo you want to install \033[36mlinux/app\033[0m packages? (y/n): ") == 'y') {
     printf("Installing \033[36mlinux/app\033[0m packages\n");
     forward();
-    system("sudo pacman -S --needed --noconfirm pipewire bluez bluez-utils git gstreamer libva cpupower lact vim git base-devel gamemode mangohud steam wine");
+    system("sudo pacman -S --needed --noconfirm pipewire bluez bluez-utils git gstreamer libva cpupower lact vim git base-devel gamemode mangohud wine");
     forward();
 } else {
     printf("Skipping \033[36mlinux/app\033[0m packages.\n");
@@ -181,6 +181,10 @@ if (next("Do you want to install \033[32mNVIDIA\033[0m drivers? (y/n): ") == 'y'
     printf("Skipping \033[32mNVIDIA\033[0m drivers.\n");
 }
 
+// STEAM install
+if (next("Do you want to install \033[36mSTEAM\033[0m  (y/n): ") == 'y') {
+    system("sudo pacman -S steam");
+    forward();
 
 // AUR setup
 if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y') {
