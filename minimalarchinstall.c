@@ -203,6 +203,7 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
         printf("Cloning all my chosen \033[36mAUR\033[0m repositories and installing...\n");
         system("cd ~/aur && git clone https://aur.archlinux.org/xone-dongle-firmware.git && "
                "git clone https://aur.archlinux.org/papirus-folders.git && "
+               "git clone https://aur.archlinux.org/librewolf-bin.git && "
                "git clone https://aur.archlinux.org/libuvc.git && "
                "git clone https://aur.archlinux.org/xpadneo-dkms.git && "
                "git clone https://aur.archlinux.org/ttf-ms-fonts.git && "
@@ -213,6 +214,7 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
         printf("Cloning important \033[36mAUR\033[0m packages...\n");
         system("cd ~/aur && git clone https://aur.archlinux.org/libuvc.git && "
                "git clone https://aur.archlinux.org/xpadneo-dkms.git && "
+               "git clone https://aur.archlinux.org/librewolf-bin.git && "
                "git clone https://aur.archlinux.org/xone-dongle-firmware.git && "
                "git clone https://aur.archlinux.org/xone-dkms.git");
     } else if (choice == '3') {
@@ -221,6 +223,7 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
                "git clone https://aur.archlinux.org/xpadneo-dkms.git && "
                "git clone https://aur.archlinux.org/xone-dongle-firmware.git && "
                "git clone https://aur.archlinux.org/xone-dkms.git && "
+               "git clone https://aur.archlinux.org/librewolf-bin.git && "
                "git clone https://aur.archlinux.org/proton-pass-bin.git && "
                "git clone https://aur.archlinux.org/proton-mail-bin.git");
     } else if (choice == '4') {
