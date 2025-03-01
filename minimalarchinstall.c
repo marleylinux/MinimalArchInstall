@@ -114,7 +114,7 @@ if (next("Do you want to install \033[33mmultilib\033[0m \033[36mlinux/app\033[0
 if (next("Do you want to install \033[35mProtonvpn\033[0m packages? (y/n): ") == 'y') {
     printf("Installing \033[35mProton\033[0m packages\n");
     forward();
-    system("sudo pacman -S --needed --noconfirm proton-vpn-gtk-app python-proton-core python-proton-keyring-linux python-proton-vpn-api-core python-proton-vpn-local-agent python-proton-vpn-network-managerg");
+    system("sudo pacman -S --needed --noconfirm proton-vpn-gtk-app python-proton-core python-proton-keyring-linux python-proton-vpn-api-core python-proton-vpn-local-agent python-proton-vpn-network-manager");
     forward();
 } else {
     printf("Skipping \033[35mProtonvpn\033[0m packages.\n");
