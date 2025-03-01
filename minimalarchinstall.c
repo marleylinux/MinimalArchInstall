@@ -188,6 +188,11 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
     system("mkdir -p ~/aur");
     forward();
     
+  if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y') {
+    printf("Creating \033[36m~/aur\033[0m directory...\n");
+    system("mkdir -p ~/aur");
+    forward();
+    
     // Ask what to install
     printf("What \033[36mAUR\033[0m packages do you want to install?\n");
     printf("\033[90m1) Everything\033[0m (All my chosen \033[36mAUR\033[0m packages)\n");
@@ -200,7 +205,7 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
     while (getchar() != '\n');
 
     if (choice == '1') {
-        printf("Cloning all my chosen \033[36mAUR\033[0m repositories and installing...\n");
+        printf("Cloning and installing all my chosen \033[36mAUR\033[0m packages...\n");
         system("cd ~/aur && git clone https://aur.archlinux.org/xone-dongle-firmware.git && "
                "git clone https://aur.archlinux.org/papirus-folders.git && "
                "git clone https://aur.archlinux.org/librewolf-bin.git && "
@@ -210,15 +215,17 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
                "git clone https://aur.archlinux.org/proton-pass-bin.git && "
                "git clone https://aur.archlinux.org/proton-mail-bin.git && "
                "git clone https://aur.archlinux.org/xone-dkms.git");
+
     } else if (choice == '2') {
-        printf("Cloning important \033[36mAUR\033[0m packages...\n");
+        printf("Cloning and installing important \033[36mAUR\033[0m packages...\n");
         system("cd ~/aur && git clone https://aur.archlinux.org/libuvc.git && "
                "git clone https://aur.archlinux.org/xpadneo-dkms.git && "
                "git clone https://aur.archlinux.org/librewolf-bin.git && "
                "git clone https://aur.archlinux.org/xone-dongle-firmware.git && "
                "git clone https://aur.archlinux.org/xone-dkms.git");
+
     } else if (choice == '3') {
-        printf("Cloning important \033[36mAUR\033[0m packages + Proton Suite...\n");
+        printf("Cloning and installing important \033[36mAUR\033[0m packages + Proton Suite...\n");
         system("cd ~/aur && git clone https://aur.archlinux.org/libuvc.git && "
                "git clone https://aur.archlinux.org/xpadneo-dkms.git && "
                "git clone https://aur.archlinux.org/xone-dongle-firmware.git && "
@@ -228,13 +235,23 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
                "git clone https://aur.archlinux.org/proton-mail-bin.git");
     } else if (choice == '4') {
         printf("Skipping \033[36mAUR\033[0m package installation.\n");
+        forward();
+        return;
     } else {
         printf("Invalid choice. Skipping \033[36mAUR\033[0m package installation.\n");
+        forward();
+        return;
     }
+
+    // Build and install packages
+    printf("Building and installing \033[36mAUR\033[0m packages...\n");
+    system("cd ~/aur && for dir in */; do cd \"$dir\" && makepkg -si --noconfirm && cd ..; done");
+
     forward();
 } else {
     printf("Skipping \033[36mAUR\033[0m setup.\n");
 }
+
 
 
 // GTK and Qt Installation
