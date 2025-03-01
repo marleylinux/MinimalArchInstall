@@ -7,7 +7,7 @@
 void forward() {
     printf("Press Enter key to continue...");
     fflush(stdout);
-    while (getchar() != '\n'); // fixes text on top of text :)
+    while (getchar() != '\n' && getchar() != EOF); // fixes text on top of text :)
 }
 
 char next(const char *prompt) {
