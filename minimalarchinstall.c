@@ -182,9 +182,15 @@ if (next("Do you want to install \033[32mNVIDIA\033[0m drivers? (y/n): ") == 'y'
 }
 
 // STEAM install
-if (next("Do you want to install \033[36mSTEAM\033[0m  (y/n): ") == 'y') {
+if (next("Do you want to install \033[36mSTEAM\033[0m (y/n): ") == 'y') {
+    // Ensure correct Vulkan packages are installed before Steam
+    system("sudo pacman -S mesa vulkan-radeon lib32-mesa lib32-vulkan-radeon");
+
+    // Now install Steam
     system("sudo pacman -S steam");
-    forward();
+
+    forward(); // This should be fine unless forward() is undefined
+}
 
 // AUR setup
 if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y') {
