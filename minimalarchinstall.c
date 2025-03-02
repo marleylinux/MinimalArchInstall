@@ -196,10 +196,9 @@ if (next("Do you want to install \033[36mSTEAM\033[0m (y/n): ") == 'y') {
 if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y') {
     printf("Creating \033[36m~/aur\033[0m directory...\033[0m\n");
     system("mkdir -p ~/aur");
-    forward();
-    
-    
-// Ask what to install
+    forward();  // Moved this to complete the statement
+
+    // Ask what to install
     printf("What \033[36mAUR\033[0m packages do you want to install?\n");
     printf("\033[90m1) Everything\033[0m (All my chosen \033[36mAUR\033[0m packages)\n");
     printf("\033[33m2) Important stuff\033[0m (libuvc, xpadneo-dkms, xone-dongle-firmware, xone-dkms)\n");
@@ -207,11 +206,10 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
     printf("\033[31m4) Nothing\033[0m (Skip)\n");
     printf("Enter your choice (1-4): ");
 
-    
+    char choice;
     scanf(" %c", &choice);
     while (getchar() != '\n');
 
-    
     if (choice == '1') {
         printf("Cloning and installing all my chosen \033[36mAUR\033[0m packages...\n");
         system("cd ~/aur && git clone https://aur.archlinux.org/xone-dongle-firmware.git && "
@@ -227,7 +225,7 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
                "cd ~/aur/xone-dkms && makepkg -si && "
                "cd ~/aur/xpadneo-dkms && makepkg -si && "
                "cd ~/aur/libuvc && makepkg -si && " 
-               "cd ~/aur/librewolf-bin-firmware && makepkg -si && "
+               "cd ~/aur/librewolf-bin && makepkg -si && "  // Fixed "librewolf-bin-firmware" typo
                "cd ~/aur/proton-mail-bin && makepkg -si && "
                "cd ~/aur/proton-pass-bin && makepkg -si && " 
                "cd ~/aur/papirus-folders && makepkg -si && "
@@ -239,12 +237,12 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
                "git clone https://aur.archlinux.org/xpadneo-dkms.git && "
                "git clone https://aur.archlinux.org/librewolf-bin.git && "
                "git clone https://aur.archlinux.org/xone-dongle-firmware.git && "
-               "git clone https://aur.archlinux.org/xone-dkms.git "
+               "git clone https://aur.archlinux.org/xone-dkms.git && " // Added missing "&&"
                "cd ~/aur/xone-dongle-firmware && makepkg -si && "
                "cd ~/aur/xone-dkms && makepkg -si && "
                "cd ~/aur/xpadneo-dkms && makepkg -si && "
                "cd ~/aur/libuvc && makepkg -si && " 
-               "cd ~/aur/librewolf-bin-firmware && makepkg -si");
+               "cd ~/aur/librewolf-bin && makepkg -si"); // Fixed typo
 
     } else if (choice == '3') {
         printf("Cloning and installing important \033[36mAUR\033[0m packages + Proton Suite...\n");
@@ -259,15 +257,17 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
                "cd ~/aur/xone-dkms && makepkg -si && "
                "cd ~/aur/xpadneo-dkms && makepkg -si && "
                "cd ~/aur/libuvc && makepkg -si && " 
-               "cd ~/aur/librewolf-bin-firmware && makepkg -si && "
+               "cd ~/aur/librewolf-bin && makepkg -si && "
                "cd ~/aur/proton-mail-bin && makepkg -si && "
-               "cd ~/aur/proton-pass-bin && makepkg -si && "   
-               "cd ~/aur/ttf-ms-fonts && makepkg -si");
+               "cd ~/aur/proton-pass-bin && makepkg -si");
+
     } else if (choice == '4') {
         printf("Skipping \033[36mAUR\033[0m package installation.\n");
         forward();
         return 0;
     }
+}
+
 
 
 // GTK and Qt Installation
