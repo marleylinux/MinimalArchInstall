@@ -327,9 +327,16 @@ if (next("Do you want to install \033[36mSTEAM\033[0m (y/n): ") == 'y') {
     // Now install Steam
     system("sudo pacman -S steam");
 
-    forward(); // This should be fine unless forward() is undefined
+    forward();
 }
 
+// OBS install
+if (next("Do you want to install \033[36mOBS\033[0m (y/n): ") == 'y') {
+    system("sudo pacman -S obs-studio");
+
+    forward(); // This should be fine unless forward() is undefined
+}
+    
 // AUR setup
 if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y') {
     printf("Creating \033[36m~/aur\033[0m directory...\033[0m\n");
