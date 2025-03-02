@@ -12,6 +12,42 @@ int is_installed(const char *package) {
     return system(command) == 0;
 }
 
+void remove_source_directory() {
+    char choice;
+    char cwd[1024];
+
+    // Get the current working directory
+    if (getcwd(cwd, sizeof(cwd)) == NULL) {
+        perror("Error getting current directory");
+        return;
+    }
+
+    // Ensure it's the "MinimalArchInstall" directory
+    if (strstr(cwd, "MinimalArchInstall") == NULL) {
+        printf("\033[31mAbort:\033[0m Not in a 'MinimalArchInstall' directory!\n");
+        return;
+    }
+
+    printf("\033[33mDo you want to\033[0m \033[31mremove\033[0m \033[33mthe source\033[0m \033[36mMinimalArchInstall\033[0m \033[35mdirectory\033[0m \033[32m(y/\033[0m\033[31mn):\033[0m ");
+    scanf(" %c", &choice);
+
+    if (choice == 'y' || choice == 'Y') {
+        printf("\033[31mConfirm deletion of\033[0m \033[36m%s\033[0m \033[31m(y/n)?\033[0m ", cwd);
+        scanf(" %c", &choice);
+
+        if (choice == 'y' || choice == 'Y') {
+            char command[1024];
+            snprintf(command, sizeof(command), "sudo rm -rf %s", cwd);
+            system(command);
+            printf("\033[33mSource\033[0m \033[36mMinimalArchInstall\033[0m \033[33mDirectory removed\033[0m\n");
+        } else {
+            printf("\033[33mDeletion cancelled.\033[0m\n");
+        }
+    } else {
+        printf("\033[33mSource\033[0m \033[36mMinimalArchInstall\033[0m \033[33mDirectory retained\033[0m\n");
+    }
+}
+
 // Function to enable a service
 void enable_service(const char *service, int now) {
     char command[128];
@@ -470,6 +506,9 @@ if (animegirlland) {
 
 
 printf("\033[31mT\033[33mh\033[32me \033[36mi\033[34mn\033[35ms\033[31mt\033[33ma\033[32ml\033[36ml\033[34ma \033[35mh\033[31ma\033[33ms \033[32mf\033[36mi\033[34mn\033[35mi\033[31ms\033[33mh\033[32me \033[36m!\033[0m\n");
+
+    remove_source_directory();
+    
 return 0;
 
 
