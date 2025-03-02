@@ -1,34 +1,29 @@
-# MinimalArchInstall
-For use after using the archinstall script and selecting minimal.(although it WILL work either way.)
-
-Allows for installing:
-
-Headers
-
-Proton (like mail and vpn not the valve proton)
-
-Some mostly needed apps (lact cpupower steam are not exactly needed but it was made for me)
-
-AMD/MESA drivers
-
-NVIDIA drivers
-
-Manual aur setup
-
-preinstalling 'needed' apps (again needed for me like xone and xpadneo)
-
-GTK & QT install
-
-Desktop enviroment setup
-
-I'm just pratcing C as much as possible. It was fun! 
-
-## Instructions ##
-git clone https://github.com/marleylinux/MinimalArchInstall
-
+MinimalArchInstall
+------------------
+MinimalArchInstall is my personal Arch Linux installation script that automates the setup process while keeping things minimal and flexible.
+---------------------------------------------------------------------------------------------------------------------------------------------
+Clone the repository:
+---------------------
+git clone https://github.com/marleylinux/MinimalArchInstall.git
 cd MinimalArchInstall
 
+Either compile then run the script:
+-----------------------------------
+gcc minimalarchinstall.c -o MinimalArchInstall
 ./MinimalArchInstall
 
+Or just run the script:
+-----------------------
+./MinimalArchInstall
 
-## I want to add using a greeter properly but I'd want to set it up so gnome would be awkward. i guess if gnome don't give a choice but thats a tomorrow job
+Notes
+-----
+Assumes you have selected a minimal archinstall
+
+Installs only the essentials—no bloat.
+
+Modify the script if you want to customize the setup.
+
+Disclaimer
+
+This is a personal script.
