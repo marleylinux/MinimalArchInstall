@@ -352,7 +352,7 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
         printf("Cloning and installing all my chosen \033[36mAUR\033[0m packages...\n");
         system("cd ~/aur && git clone https://aur.archlinux.org/xone-dongle-firmware.git && "
                "git clone https://aur.archlinux.org/papirus-folders.git && "
-               "git clone https://aur.archlinux.org/librewolf-bin.git && "
+               "git clone https://aur.archlinux.org/brave-bin.git && "
                "git clone https://aur.archlinux.org/libuvc.git && "
                "git clone https://aur.archlinux.org/xpadneo-dkms.git && "
                "git clone https://aur.archlinux.org/ttf-ms-fonts.git && "
@@ -363,7 +363,7 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
                "cd ~/aur/xone-dkms && makepkg -si && "
                "cd ~/aur/xpadneo-dkms && makepkg -si && "
                "cd ~/aur/libuvc && makepkg -si && " 
-               "cd ~/aur/librewolf-bin && makepkg -si && "  // Fixed "librewolf-bin-firmware" typo
+               "cd ~/aur/brave-bin && makepkg -si && "  // Fixed "brave-bin-firmware" typo
                "cd ~/aur/proton-mail-bin && makepkg -si && "
                "cd ~/aur/proton-pass-bin && makepkg -si && " 
                "cd ~/aur/papirus-folders && makepkg -si && "
@@ -373,14 +373,14 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
         printf("Cloning and installing important \033[36mAUR\033[0m packages...\n");
         system("cd ~/aur && git clone https://aur.archlinux.org/libuvc.git && "
                "git clone https://aur.archlinux.org/xpadneo-dkms.git && "
-               "git clone https://aur.archlinux.org/librewolf-bin.git && "
+               "git clone https://aur.archlinux.org/brave-bin.git && "
                "git clone https://aur.archlinux.org/xone-dongle-firmware.git && "
                "git clone https://aur.archlinux.org/xone-dkms.git && " // Added missing "&&"
                "cd ~/aur/xone-dongle-firmware && makepkg -si && "
                "cd ~/aur/xone-dkms && makepkg -si && "
                "cd ~/aur/xpadneo-dkms && makepkg -si && "
                "cd ~/aur/libuvc && makepkg -si && " 
-               "cd ~/aur/librewolf-bin && makepkg -si"); // Fixed typo
+               "cd ~/aur/brave-bin && makepkg -si"); // Fixed typo
 
     } else if (choice == '3') {
         printf("Cloning and installing important \033[36mAUR\033[0m packages + Proton Suite...\n");
@@ -388,14 +388,14 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
                "git clone https://aur.archlinux.org/xpadneo-dkms.git && "
                "git clone https://aur.archlinux.org/xone-dongle-firmware.git && "
                "git clone https://aur.archlinux.org/xone-dkms.git && "
-               "git clone https://aur.archlinux.org/librewolf-bin.git && "
+               "git clone https://aur.archlinux.org/brave-bin.git && "
                "git clone https://aur.archlinux.org/proton-pass-bin.git && "
                "git clone https://aur.archlinux.org/proton-mail-bin.git && "
                "cd ~/aur/xone-dongle-firmware && makepkg -si && "
                "cd ~/aur/xone-dkms && makepkg -si && "
                "cd ~/aur/xpadneo-dkms && makepkg -si && "
                "cd ~/aur/libuvc && makepkg -si && " 
-               "cd ~/aur/librewolf-bin && makepkg -si && "
+               "cd ~/aur/brave-bin && makepkg -si && "
                "cd ~/aur/proton-mail-bin && makepkg -si && "
                "cd ~/aur/proton-pass-bin && makepkg -si");
 
