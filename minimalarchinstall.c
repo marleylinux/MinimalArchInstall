@@ -31,9 +31,61 @@ char next(const char *prompt) {
     return choice;
 }
 
+#include <stdio.h>
+#include <stdlib.h>
+
+void check_multilib() {
+    FILE *pacmanConf;
+    char line[256];
+    int multilibEnabled = 0;
+
+    // Open /etc/pacman.conf for reading
+    pacmanConf = fopen("/etc/pacman.conf", "r");
+    if (pacmanConf == NULL) {
+        printf("Error: Unable to open /etc/pacman.conf\n");
+        return;
+    }
+
+    // Check if [multilib] is enabled
+    while (fgets(line, sizeof(line), pacmanConf)) {
+        if (line[0] != '#' && strstr(line, "[multilib]")) {
+            multilibEnabled = 1;
+            break;
+        }
+    }
+    fclose(pacmanConf);
+
+    if (multilibEnabled) {
+        printf("Multilib is already enabled.\n");
+        return;
+    }
+
+    // Ask user if they want to enable multilib
+    char choice;
+    printf("Multilib is not enabled. Do you want to enable it? (Y/N): ");
+    scanf(" %c", &choice);
+
+    if (choice == 'Y' || choice == 'y') {
+        printf("Enabling multilib...\n");
+
+        // Use sed to uncomment [multilib] and the Include line
+        system("sudo sed -i '/#\\[multilib\\]/s/^#//' /etc/pacman.conf");
+        system("sudo sed -i '/#Include = /etc/pacman.d/mirrorlist/s/^#//' /etc/pacman.conf");
+
+        // Refresh pacman database
+        system("sudo pacman -Sy");
+
+        printf("Multilib has been enabled.\n");
+    } else {
+        printf("Multilib will remain disabled.\n");
+    }
+}
+
 int main() {
     
     char choice;
+
+     check_multilib();
 
 // Welcome
     printf("\033[0mWelcome to my Minimal \033[36march\033[0m installer script\n");
