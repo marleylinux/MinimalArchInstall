@@ -10,6 +10,7 @@ cd MinimalArchInstall
 Either compile then run the script:
 -----------------------------------
 gcc minimalarchinstall.c -o MinimalArchInstall
+
 ./MinimalArchInstall
 
 Or just run the script:
