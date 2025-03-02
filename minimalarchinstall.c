@@ -4,6 +4,55 @@
 
 // Functions
 
+// Function to check if a package is installed
+int is_installed(const char *package) {
+    char command[128];
+    snprintf(command, sizeof(command), "pacman -Q %s > /dev/null 2>&1", package);
+    return system(command) == 0;
+}
+
+// Function to enable a service
+void enable_service(const char *service, int now) {
+    char command[128];
+    if (now) {
+        snprintf(command, sizeof(command), "sudo systemctl enable --now %s", service);
+    } else {
+        snprintf(command, sizeof(command), "sudo systemctl enable %s", service);
+    }
+    system(command);
+}
+
+// Function to check and enable services
+void check_and_enable_services() {
+    struct {
+        const char *package;
+        const char *service;
+        int enable_now;
+    } services[] = {
+        {"lact", "lactd", 1},
+        {"networkmanager", "NetworkManager", 1},
+        {"modemmanager", "ModemManager", 1},
+        {"bluez", "bluetooth", 1},
+        {"vmware", "vmware-networks-configuration.service", 1},
+        {"cpupower", "cpupower", 1},
+        {"greetd", "greetd", 0},
+        {"sddm", "sddm", 0},
+        {"gdm", "gdm", 0},
+    };
+    
+    char choice;
+    for (size_t i = 0; i < sizeof(services) / sizeof(services[0]); i++) {
+        if (is_installed(services[i].package)) {
+            printf("%s is installed. Do you want to enable %s? (y/n): ", services[i].package, services[i].service);
+            scanf(" %c", &choice);
+            while (getchar() != '\n'); // Clear input buffer
+            if (choice == 'y' || choice == 'Y') {
+                enable_service(services[i].service, services[i].enable_now);
+            }
+        }
+    }
+}
+
 void forward() {
     printf("Press Enter key to continue...");
     fflush(stdout);
@@ -416,6 +465,8 @@ if (animegirlland) {
         printf("Skipping \033[36mHyprland\033[0m extra packages\n");
     }
 }
+
+    check_and_enable_services();
 
 
 printf("\033[31mT\033[33mh\033[32me \033[36mi\033[34mn\033[35ms\033[31mt\033[33ma\033[32ml\033[36ml\033[34ma \033[35mh\033[31ma\033[33ms \033[32mf\033[36mi\033[34mn\033[35mi\033[31ms\033[33mh\033[32me \033[36m!\033[0m\n");
