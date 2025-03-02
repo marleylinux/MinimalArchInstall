@@ -253,15 +253,15 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
 
     // Build and install packages
     printf("Building and installing \033[36mAUR\033[0m packages...\n");
-    system("cd ~/aur && makepkg -si https://aur.archlinux.org/xone-dongle-firmware.git && "
-               "makepkg -si https://aur.archlinux.org/papirus-folders.git && "
-               "makepkg -si https://aur.archlinux.org/librewolf-bin.git && "
-               "makepkg -si https://aur.archlinux.org/libuvc.git && "
-               "makepkg -si https://aur.archlinux.org/xpadneo-dkms.git && "
-               "makepkg -si https://aur.archlinux.org/ttf-ms-fonts.git && "
-               "makepkg -si https://aur.archlinux.org/proton-pass-bin.git && "
-               "makepkg -si https://aur.archlinux.org/proton-mail-bin.git && "
-               "makepkg -si https://aur.archlinux.org/xone-dkms.git");
+    system("cd ~/aur/xone-dongle-firmware && makepkg -si "
+           "cd ~/aur/xone-dkms && makepkg -si "
+           "cd ~/aur/xpadneo-dkms && makepkg -si "
+           "cd ~/aur/libuvc && makepkg -si " 
+           "cd ~/aur/librewolf-bin-firmware && makepkg -si "
+           "cd ~/aur/proton-mail-bin && makepkg -si "
+           "cd ~/aur/proton-pass-bin && makepkg -si "   
+           "cd ~/aur/ttf-ms-fonts && makepkg -si "
+           "cd ~/aur/papirus-folders && makepkg -si");
 
     forward();
 } else {
