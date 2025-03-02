@@ -195,7 +195,7 @@ if (next("Do you want to install \033[36mLinux\033[0m headers? (y/n): ") == 'y')
 if (next("\033[0mDo you want to install \033[36mlinux/app\033[0m packages? (y/n): ") == 'y') {
     printf("Installing \033[36mlinux/app\033[0m packages\n");
     forward();
-    system("sudo pacman -S --needed --noconfirm pipewire bluez bluez-utils git gstreamer libva cpupower lact vim git base-devel gamemode mangohud wine");
+    system("sudo pacman -S --needed --noconfirm pipewire unzip bluez bluez-utils git gstreamer libva cpupower lact vim git base-devel gamemode mangohud wine");
     forward();
 } else {
     printf("Skipping \033[36mlinux/app\033[0m packages.\n");
@@ -437,7 +437,7 @@ if (choice == '1' && next("Are you sure you want to install \033[90mGNOME\033[0m
 } else if (choice == '3' && next("Are you sure you want to install \033[36mHyprland\033[0m? (y/n): ") == 'y') {
     printf("Installing \033[36mHyprland\033[0m\n");
     forward();
-    system("sudo pacman -S --needed --noconfirm hyprland xdg-desktop-portal-hyprland");
+    system("sudo pacman -S --needed --noconfirm hyprland kitty xdg-desktop-portal-hyprland");
     forward();
     animegirlland = 1;  // Mark Hyprland as selected
 } else if (choice == '4' && next("Are you sure you want to install \033[33mSway\033[0m? (y/n): ") == 'y') {
