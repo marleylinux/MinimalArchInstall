@@ -366,7 +366,6 @@ if (next("Do you want to set up \033[36mAUR\033[0m manually now? (y/n): ") == 'y
     } else if (choice == '4') {
         printf("Skipping \033[36mAUR\033[0m package installation.\n");
         forward();
-        return 0;
     }
 }
 
